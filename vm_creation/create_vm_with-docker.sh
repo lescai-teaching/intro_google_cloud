@@ -15,7 +15,9 @@ gcloud compute \
 	--boot-disk-size=100GB --boot-disk-type=pd-balanced \
 	--boot-disk-device-name=test-rstudio \
 	--container-image=ghcr.io/rocker-org/verse:4.3.1 \
-	--container-restart-policy=always --no-shielded-secure-boot \
+	--container-restart-policy=always \
+	--container-env=DISABLE_AUTH=true \
+	--no-shielded-secure-boot \
 	--shielded-vtpm \
 	--shielded-integrity-monitoring \
 	--labels=goog-ec-src=vm_add-gcloud,container-vm=cos-stable-105-17412-156-34
