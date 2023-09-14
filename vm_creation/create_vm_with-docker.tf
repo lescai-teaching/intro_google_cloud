@@ -2,6 +2,9 @@
 # https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-build#format-and-validate-the-configuration
 
 resource "google_compute_instance" "test-rstudio" {
+
+  count = var.instance_count
+  machine_type = var.instance_type # "e2-standard-8"
   boot_disk {
     auto_delete = true
     device_name = "test-rstudio"
@@ -20,8 +23,6 @@ resource "google_compute_instance" "test-rstudio" {
     container-vm = "cos-stable-105-17412-156-34"
     goog-ec-src  = "vm_add-tf"
   }
-
-  machine_type = "e2-standard-8"
 
   metadata = {
     gce-container-declaration = "spec:\n  containers:\n  - name: rstudio-server\n    image: ghcr.io/rocker-org/verse:4.3.1\n    env:\n    - name: DISABLE_AUTH\n      value: 'true'\n    stdin: false\n    tty: false\n  restartPolicy: Always\n# This container declaration format is not public API and may change without notice. Please\n# use gcloud command-line tool or Google Cloud Console to run Containers on Google Compute Engine."
@@ -57,4 +58,13 @@ resource "google_compute_instance" "test-rstudio" {
 
   tags = ["rstudio"]
   zone = "europe-west4-a"
+}
+
+
+variable "instance_count" {
+  default = 1
+}
+
+variable "instance_type" {
+  default = "e2-standard-8"
 }
