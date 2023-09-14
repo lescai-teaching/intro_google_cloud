@@ -3,8 +3,9 @@
 
 resource "google_compute_instance" "test-rstudio" {
 
-  count = var.instance_count
+  count        = var.instance_count
   machine_type = var.instance_type # "e2-standard-8"
+  project      = "YOUR-PROJECT-NAME"
   boot_disk {
     auto_delete = true
     device_name = "test-rstudio"
