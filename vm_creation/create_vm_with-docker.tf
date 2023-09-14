@@ -6,9 +6,9 @@ resource "google_compute_instance" "test-rstudio" {
   count        = var.instance_count
   machine_type = var.instance_type # "e2-standard-8"
   project      = "YOUR-PROJECT-NAME"
+  name         = "test-rstudio-${count.index}"
   boot_disk {
     auto_delete = true
-    device_name = "test-rstudio"
     initialize_params {
       image = "projects/cos-cloud/global/images/cos-stable-105-17412-156-34"
       size  = 100
@@ -63,6 +63,7 @@ resource "google_compute_instance" "test-rstudio" {
 
 
 variable "instance_count" {
+  type = number
   default = 1
 }
 
