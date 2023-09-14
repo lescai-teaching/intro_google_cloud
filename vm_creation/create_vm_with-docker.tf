@@ -29,8 +29,6 @@ resource "google_compute_instance" "test-rstudio" {
     gce-container-declaration = "spec:\n  containers:\n  - name: rstudio-server\n    image: ghcr.io/rocker-org/verse:4.3.1\n    env:\n    - name: DISABLE_AUTH\n      value: 'true'\n    stdin: false\n    tty: false\n  restartPolicy: Always\n# This container declaration format is not public API and may change without notice. Please\n# use gcloud command-line tool or Google Cloud Console to run Containers on Google Compute Engine."
   }
 
-  name = "test-rstudio"
-
   network_interface {
     access_config {
       network_tier = "PREMIUM"
