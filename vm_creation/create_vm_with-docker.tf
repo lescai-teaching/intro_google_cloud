@@ -4,7 +4,7 @@
 resource "google_compute_instance" "test-rstudio" {
 
   count        = var.instance_count
-  machine_type = var.instance_type # "e2-standard-8"
+  machine_type = var.instance_type # "e2-standard-2"
   project      = "YOUR-PROJECT-NAME"
   name         = "test-rstudio-${count.index}"
   boot_disk {
@@ -45,7 +45,7 @@ resource "google_compute_instance" "test-rstudio" {
   }
 
   service_account {
-    email  = "YOUR-COMPUTE-SERVICE-ACCOUNT"
+    email  = "YOUR-COMPUTE-SERVICE-ACCOUNT" ## use 'gcloud iam service-accounts list'
     scopes = ["https://www.googleapis.com/auth/devstorage.read_only", "https://www.googleapis.com/auth/logging.write", "https://www.googleapis.com/auth/monitoring.write", "https://www.googleapis.com/auth/service.management.readonly", "https://www.googleapis.com/auth/servicecontrol", "https://www.googleapis.com/auth/trace.append"]
   }
 
@@ -66,5 +66,5 @@ variable "instance_count" {
 }
 
 variable "instance_type" {
-  default = "e2-standard-8"
+  default = "e2-standard-2"
 }
