@@ -19,6 +19,7 @@ You will find the following scripts:
 - [how to configure your project](./project_configuration/configure_project.sh)
 - [how to export service account key](./project_configuration/export_service-account_key.sh)
 
+All the steps performed in this section of the workshop are described in detail on [this page](https://cloud.google.com/batch/docs/nextflow) on the Google Cloud documentation.
 
 ## Creating Virtual Machines
 
@@ -30,6 +31,8 @@ However, two different scripts will be demonstrated:
 
 [Terraform](https://www.terraform.io) is a very powerful structured tool to handle *infrastructure as a code*.
 
+The steps performed in either the console, or using *gcloud* or Terraform are described in detail on [the specific pages](https://cloud.google.com/compute/docs/instances/create-start-instance#console) in Google Cloud Documentation.
+
 ## Running Nextflow
 
 Nextflow can be run on Google Cloud Platform using the *lifesciences* API (which will be retired soon), or the new *Batch* API.
@@ -40,5 +43,5 @@ Here you can find:
 - the skeleton of a [config](./nextflow_testing/google_lifesciences.config) to use google lifesciences api
 - the skeleton of a [config](./nextflow_testing/google_batch.config) to use google batch api
 
-
+Additional details on the configuration and execution of Nextflow on Google Batch can be found on [Nextflow documentation](https://www.nextflow.io/docs/latest/google.html)
 
