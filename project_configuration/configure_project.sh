@@ -94,10 +94,6 @@ gcloud projects add-iam-policy-binding ${PROJECT} \
 
 gcloud projects add-iam-policy-binding ${PROJECT} \
     --member serviceAccount:${SERVICE_ACCOUNT_ADDRESS} \
-    --role
-
-gcloud projects add-iam-policy-binding ${PROJECT} \
-    --member serviceAccount:${SERVICE_ACCOUNT_ADDRESS} \
     --role roles/batch.jobsEditor
 
 gcloud projects add-iam-policy-binding ${PROJECT} \
